@@ -7,8 +7,27 @@ import jakarta.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for creating dynamic JPA {@link Specification} objects for the
+ * {@link Inventory} entity.
+ * This acts as a factory for building search criteria based on variable inputs.
+ */
 public class InventorySpecifications {
 
+    /**
+     * Creates a {@link Specification} for the {@link Inventory} entity based on the
+     * filter criteria
+     * provided in the {@link InventorySearchParams} DTO.
+     * <p>
+     * The criteria are combined using a logical AND. If a parameter in the DTO is
+     * null or blank,
+     * it's ignored and not added to the query's WHERE clause.
+     *
+     * @param params The DTO containing the optional filter values. Must not be
+     *               null.
+     * @return A {@link Specification<Inventory>} object that can be executed by a
+     *         JpaSpecificationExecutor.
+     */
     public static Specification<Inventory> withDynamicQuery(InventorySearchParams params) {
         return (root, query, criteriaBuilder) -> {
 
