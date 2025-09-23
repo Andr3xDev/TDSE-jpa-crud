@@ -12,26 +12,47 @@
         <h1>Gestión de Inventario</h1>
         
         <div class="layout">
-            <div class="form-section">
+            <div class="form-container">
                 <h2>Crear Nuevo Artículo</h2>
                 <form id="create-form">
-                    <input type="text" id="name" name="name" placeholder="Nombre del artículo" required>
-                    <input type="text" id="address" name="address" placeholder="Dirección/Ubicación" required>
-                    <input type="number" id="price" name="price" placeholder="Precio" required>
-                    <input type="number" id="size" name="size" placeholder="Tamaño/Cantidad" required>
-                    <input type="text" id="description" name="description" placeholder="Descripción (opcional)">
+                    <input type="text" name="name" placeholder="Nombre del artículo" required>
+                    <input type="text" name="address" placeholder="Dirección/Ubicación" required>
+                    <input type="number" name="price" placeholder="Precio" required>
+                    <input type="number" name="size" placeholder="Tamaño/Cantidad" required>
+                    <input type="text" name="description" placeholder="Descripción (opcional)">
                     <button type="submit">Crear Artículo</button>
                 </form>
             </div>
             
-            <div class="search-section">
+            <div class="form-container">
                 <h2>Buscar Artículos</h2>
                 <form id="search-form">
-                    <input type="text" id="search-name" name="name" placeholder="Filtrar por nombre">
-                    <input type="text" id="search-address" name="address" placeholder="Filtrar por dirección">
-                    <input type="number" id="search-maxPrice" name="maxPrice" placeholder="Precio máximo">
-                    <input type="number" id="search-minSize" name="minSize" placeholder="Tamaño mínimo">
+                    <input type="text" name="name" placeholder="Filtrar por nombre">
+                    <input type="text" name="address" placeholder="Filtrar por dirección">
+                    <input type="number" name="maxPrice" placeholder="Precio máximo">
+                    <input type="number" name="minSize" placeholder="Tamaño mínimo">
                     <button type="submit">Buscar</button>
+                </form>
+            </div>
+
+            <div class="form-container">
+                <h2>Actualizar Artículo</h2>
+                <form id="update-form">
+                    <input type="text" id="update-id" name="id" placeholder="ID del artículo" readonly required>
+                    <input type="text" id="update-name" name="name" placeholder="Nuevo nombre">
+                    <input type="text" id="update-address" name="address" placeholder="Nueva dirección">
+                    <input type="number" id="update-price" name="price" placeholder="Nuevo precio">
+                    <input type="number" id="update-size" name="size" placeholder="Nuevo tamaño">
+                    <input type="text" id="update-description" name="description" placeholder="Nueva descripción">
+                    <button type="submit">Actualizar Artículo</button>
+                </form>
+            </div>
+
+            <div class="form-container">
+                <h2>Eliminar Artículo</h2>
+                <form id="delete-form">
+                    <input type="text" id="delete-id" name="id" placeholder="ID del artículo a eliminar" readonly required>
+                    <button type="submit" class="btn-delete">Eliminar Artículo</button>
                 </form>
             </div>
         </div>
@@ -47,6 +68,7 @@
                     <th>Dirección</th>
                     <th>Precio</th>
                     <th>Tamaño</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody id="results-table-body">

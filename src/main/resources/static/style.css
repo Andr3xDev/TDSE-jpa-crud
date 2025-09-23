@@ -13,7 +13,8 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 2rem;
     background-color: var(--base);
@@ -29,7 +30,8 @@ body {
     border: 1px solid var(--highlight-med);
 }
 
-h1, h2 {
+h1,
+h2 {
     color: var(--iris);
     border-bottom: 2px solid var(--overlay);
     padding-bottom: 0.5rem;
@@ -43,11 +45,13 @@ h1 {
 
 .layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    /* Crea columnas flexibles que se apilan solas en pantallas pequeñas */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.form-section, .search-section {
+.form-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -56,7 +60,7 @@ h1 {
     border-radius: 6px;
 }
 
-input[type="text"], input[type="number"] {
+input:is([type="text"], [type="number"]) {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--highlight-med);
@@ -67,9 +71,14 @@ input[type="text"], input[type="number"] {
     transition: border-color 0.2s;
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
+input:is([type="text"], [type="number"]):focus {
     outline: none;
     border-color: var(--iris);
+}
+
+input[readonly] {
+    background-color: var(--highlight-med);
+    cursor: not-allowed;
 }
 
 button {
@@ -87,13 +96,26 @@ button:hover {
     background-color: var(--foam);
 }
 
+.form-container button {
+    width: 100%;
+}
+
+.btn-delete {
+    background-color: var(--love);
+}
+.btn-delete:hover {
+    opacity: 0.85;
+    background-color: var(--love);
+}
+
 table {
     width: 100%;
     margin-top: 2rem;
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     text-align: left;
     padding: 0.85rem 1rem;
     border-bottom: 1px solid var(--highlight-med);
@@ -102,16 +124,25 @@ th, td {
 th {
     background-color: var(--overlay);
     color: var(--subtle);
-    font-weight: bold;
 }
 
 tbody tr:hover {
     background-color: var(--highlight-med);
 }
 
+.actions-cell {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.actions-cell button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8em;
+}
+
 #message-area {
     padding: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-radius: 4px;
     text-align: center;
     font-weight: bold;
@@ -126,10 +157,4 @@ tbody tr:hover {
 .error {
     background-color: var(--love);
     color: var(--base);
-}
-
-@media (max-width: 820px) {
-    .layout {
-        grid-template-columns: 1fr;
-    }
 }
