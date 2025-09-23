@@ -21,7 +21,7 @@ This system is designed to manage property inventory through a web-based interfa
 
 ### Video
 
-![Video](https://github.com/user-attachments/assets/5cf440e3-efe3-48b8-91fe-36b2654d9577)
+https://github.com/user-attachments/assets/5cf440e3-efe3-48b8-91fe-36b2654d9577
 
 <br>
 
