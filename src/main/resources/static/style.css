@@ -1,0 +1,135 @@
+/* Colors */
+:root {
+    --base: #191724;
+    --surface: #1f1d2e;
+    --overlay: #26233a;
+    --muted: #6e6a86;
+    --subtle: #908caa;
+    --text: #e0def4;
+    --love: #eb6f92;
+    --iris: #c4a7e7;
+    --foam: #9ccfd8;
+    --highlight-med: #403d52;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: var(--base);
+    color: var(--text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--highlight-med);
+}
+
+h1, h2 {
+    color: var(--iris);
+    border-bottom: 2px solid var(--overlay);
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.form-section, .search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--overlay);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--highlight-med);
+    background-color: var(--base);
+    color: var(--text);
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: var(--iris);
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--iris);
+    color: var(--base);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--foam);
+}
+
+table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--highlight-med);
+}
+
+th {
+    background-color: var(--overlay);
+    color: var(--subtle);
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: var(--highlight-med);
+}
+
+#message-area {
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.success {
+    background-color: var(--foam);
+    color: var(--base);
+}
+
+.error {
+    background-color: var(--love);
+    color: var(--base);
+}
+
+@media (max-width: 820px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Inventario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gestión de Inventario</h1>
+        
+        <div class="layout">
+            <div class="form-section">
+                <h2>Crear Nuevo Artículo</h2>
+                <form id="create-form">
+                    <input type="text" id="name" name="name" placeholder="Nombre del artículo" required>
+                    <input type="text" id="address" name="address" placeholder="Dirección/Ubicación" required>
+                    <input type="number" id="price" name="price" placeholder="Precio" required>
+                    <input type="number" id="size" name="size" placeholder="Tamaño/Cantidad" required>
+                    <input type="text" id="description" name="description" placeholder="Descripción (opcional)">
+                    <button type="submit">Crear Artículo</button>
+                </form>
+            </div>
+            
+            <div class="search-section">
+                <h2>Buscar Artículos</h2>
+                <form id="search-form">
+                    <input type="text" id="search-name" name="name" placeholder="Filtrar por nombre">
+                    <input type="text" id="search-address" name="address" placeholder="Filtrar por dirección">
+                    <input type="number" id="search-maxPrice" name="maxPrice" placeholder="Precio máximo">
+                    <input type="number" id="search-minSize" name="minSize" placeholder="Tamaño mínimo">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="message-area"></div>
+
+        <h2>Resultados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Precio</th>
+                    <th>Tamaño</th>
+                </tr>
+            </thead>
+            <tbody id="results-table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="dataFetch.js" defer></script>
+</body>
+</html>
